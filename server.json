@@ -1,0 +1,37 @@
+{
+    "/": {
+        "handlers": [{
+         
+            "method": "GET",
+            "status": 200,
+            "response": {
+                "message": "Hello, world!"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        }],
+        "children": {
+            "/newpath": {
+                "handlers": [{
+                    "method": "GET",
+                    "status": 200,
+                    "headers": {
+                        "Content-Type": "application/json"
+                    }
+                }],
+                "children": {
+                    "/newpath2": {
+                        "handlers": [{
+                            "method": "POST",
+                            "status": 204,
+                            "headers": {
+                                "Content-Type": "application/json"
+                            }
+                        }]
+                    }
+                }
+            }
+        }
+    }
+}
